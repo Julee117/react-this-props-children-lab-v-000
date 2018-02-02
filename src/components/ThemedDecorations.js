@@ -2,16 +2,15 @@ import React from 'react';
 
 export default class ThemedDecorations extends React.Component {
   render() {
-    const mainClassName='heaven'
     const childrenWithWrapper = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
-        className: mainClassName
+        className: this.props.theme,
       })
     })
     return (
-      <ThemedDecorations theme="heaven">
+      <div>
         {childrenWithWrapper}
-      </ThemedDecorations>
+      </div>
     )
   }
 }
